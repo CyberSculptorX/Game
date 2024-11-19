@@ -115,6 +115,7 @@ int Pokemon::calculateDamage(Pokemon& opponent, int damage) {
 			//Electric is weak against electric so damage the grass type.
 			return damage / 2;
 		}
+		else return damage;
 	}
 }
 
@@ -153,7 +154,7 @@ bool Pokemon::runAway() {
 /// <param name="damage">amount of damage taken.</param>
 void Pokemon::takeDamage(int damage) {
 	health -= damage;
-	std::cout << name << " takes " << damage << " damage! Health is now " << health << "." << std::endl;
+	std::cout << "\n" << name << " takes " << damage << " damage! Health is now " << health << "." << std::endl;
 	if (health <= 0) {
 		std::cout << name << " has fainted!" << std::endl;
 		health = 0;  // Ensure health does not go below zero

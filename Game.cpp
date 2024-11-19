@@ -24,17 +24,18 @@ void Game::start() {
 /// <returns>new Pokemon object</returns>
 Pokemon* Game::SelectPokemon(std::string prompt) {
 	int choice;
+	std::cout << std::endl;
 	std::cout << "   1. Pikachu\n   2. Charmander\n   3. Squirtle\n   4. Bulbasaur" << std::endl;
 	std::cin >> choice;
 
 	switch (choice) {
-	case 1: std::cout << " Pikachu clambers to his feet." << std::endl;
+	case 1: std::cout << " \nPikachu pops up on to his feet and is ready to battle." << std::endl;
 		return new Pikachu();
-	case 2: std::cout << " Charmander clambers to his feet." << std::endl;
+	case 2: std::cout << " \nCharmander clambers to his feet and is ready to battle." << std::endl;
 		return new Charmander();
-	case 3: std::cout << " Squirtle clambers to his feet." << std::endl;
+	case 3: std::cout << " \nSquirtle splashes with his feet and is ready to battle." << std::endl;
 		return new Squirtle();
-	case 4: std::cout << " Bulbasaur clambers to his feet." << std::endl;
+	case 4: std::cout << " \nBulbasaur bounces into action and is ready to battle." << std::endl;
 		return new Bulbasaur();
 	default:
 		std::cout << "Invalid Choice! You're getting a Jigglypuff!" << std::endl;
@@ -47,12 +48,12 @@ Pokemon* Game::SelectPokemon(std::string prompt) {
 /// </summary>
 void Game::Battle() {
 	while ((playerPokemon->getHealth() > 0) && (opponentPokemon->getHealth() > 0)) {
-		std::cout << "Your Turn!\n"<< *playerPokemon << std::endl;
+		std::cout << "\nYour Turn!\n"<< "\n" << * playerPokemon << std::endl;
 		playerPokemon = playerPokemon->actionMenu(*opponentPokemon);
 		playerPokemon->gainExperience();
 
 		if (opponentPokemon->getHealth() > 0) {
-			std::cout << "Opponent's Turn!\n" << *opponentPokemon << std::endl;
+			std::cout << "\nOpponent's Turn!\n" << "\n" << * opponentPokemon << std::endl;
 			opponentPokemon = opponentPokemon->actionMenu(*playerPokemon);
 			opponentPokemon->gainExperience();
 		}
